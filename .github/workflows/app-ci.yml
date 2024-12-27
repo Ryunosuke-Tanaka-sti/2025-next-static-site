@@ -1,0 +1,49 @@
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '22.x'                # set this to the node version to use
+  
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+  
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm run build
+      working-directory: my-app
+
+    - name: Upload Cache app
+      uses: actions/cache/save@v4
+      with:
+        path: my-app/out/
+        key: ${{ runner.os }}-app-${{ github.sha }}
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Download Cache app
+      uses: actions/cache/restore@v4
+      with:
+        path: my-app/out/
+        key: ${{ runner.os }}-app-${{ github.sha }}
+    
+    - name: Deploy to Azure Web App
+      run: ls -al my-app/out/
