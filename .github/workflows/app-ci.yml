@@ -12,22 +12,24 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-app
     steps:
     - uses: actions/checkout@v4
   
     - name: Set up Node.js
       uses: actions/setup-node@v4
+      working: my-app
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
-      working-directory: my-app
 
 
     - name: npm install, build, and test
       run: |
         npm install
         npm run build
-      working-directory: my-app
 
     - name: Upload Cache app
       uses: actions/cache/save@v4
