@@ -1,9 +1,31 @@
 {
     "trailingSlash": "auto",
+    "auth": {
+        "identityProviders": {
+            "google": {
+                "registration": {
+                    "clientIdSettingName": "GOOGLE_CLIENT_ID",
+                    "clientSecretSettingName": "GOOGLE_PROVIDER_AUTHENTICATION_SECRET"
+                }
+            }
+        }
+    },
+    "routes": [
+        {
+            "route": "/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
+    ],
     "responseOverrides": {
         "404": {
             "rewrite": "/404/index.html",
             "statusCode": 404
+        },
+        "401": {
+            "statusCode": 302,
+            "redirect": "/.auth/login/google"
         }
     }
 }
