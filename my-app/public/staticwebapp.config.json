@@ -16,7 +16,7 @@
                             "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
                         },
                         "openIdConnectConfiguration": {
-                            "wellKnownOpenIdConfiguration": "https://ryu0sample0test.b2clogin.com/ryu0sample0test.onmicrosoft.com/b2c_1_pride/v2.0/.well-known/openid-configuration"
+                            "wellKnownOpenIdConfiguration": "https://ReinaTest001.b2clogin.com/ReinaTest001.onmicrosoft.com/b2c_1_pride_susi/v2.0/.well-known/openid-configuration"
                         }
                     },
                     "login": {
