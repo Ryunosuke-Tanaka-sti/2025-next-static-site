@@ -56,3 +56,4 @@ jobs:
         output_location: "my-app/out/"
         app_location: "my-app/out/"
         skip_app_build: true
+        skip_api_build: true
