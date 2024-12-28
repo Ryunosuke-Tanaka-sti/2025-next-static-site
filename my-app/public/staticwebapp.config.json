@@ -7,6 +7,24 @@
                     "clientIdSettingName": "GOOGLE_CLIENT_ID",
                     "clientSecretSettingName": "GOOGLE_PROVIDER_AUTHENTICATION_SECRET"
                 }
+            },
+            "customOpenIdConnectProviders": {
+                "aadb2c": {
+                    "registration": {
+                        "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+                        "clientCredential": {
+                            "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+                        },
+                        "openIdConnectConfiguration": {
+                            "wellKnownOpenIdConfiguration": "https://ryu0sample0test.b2clogin.com/ryu0sample0test.onmicrosoft.com/b2c_1_pride/v2.0/.well-known/openid-configuration"
+                        }
+                    },
+                    "login": {
+                        "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                        "scopes": [],
+                        "loginParameterNames": []
+                    }
+                }
             }
         }
     },
