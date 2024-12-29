@@ -42,4 +42,4 @@ next-env.d.ts
 
 staticwebapp.config.local.json
 
-/api/**/constant.ts
+/api/**/constant.*
