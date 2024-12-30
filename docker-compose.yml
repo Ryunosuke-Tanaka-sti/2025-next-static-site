@@ -10,5 +10,11 @@ services:
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/my-app/node_modules
+    networks:
+      - pride-project
 volumes:
   node_modules:
+
+networks:
+  pride-project:
+    external: true
