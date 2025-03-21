@@ -1,7 +1,7 @@
 ARG NODE_VER
 FROM node:${NODE_VER}
 
-RUN npm install -g npm@11.0.0
+RUN npm install -g npm
 RUN npm install -g @azure/static-web-apps-cli
 
 USER node
